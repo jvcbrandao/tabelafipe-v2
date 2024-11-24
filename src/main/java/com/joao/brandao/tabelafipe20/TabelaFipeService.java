@@ -14,23 +14,7 @@ public class TabelaFipeService {
 
             TabelaFipe resposta = mapper.readValue(json, TabelaFipe.class);
 
-
             return resposta;
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

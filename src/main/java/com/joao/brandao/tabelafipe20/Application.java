@@ -2,10 +2,9 @@ package com.joao.brandao.tabelafipe20;
 
 import Model.MarcasVeiculos;
 import Model.ModelosResposta;
-import Model.ModelosVeiculos;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -64,8 +63,21 @@ public class Application {
 
 		listaMarcas = marcasVeiculosService.parseMarcasVeiculos(json);
 
-		listaMarcas.stream().forEach(System.out::println);
+		listaMarcas.stream()
+				.map(marcasVeiculos -> {
+					TabelaFipeService tabelafipeservice = new TabelaFipeService();
+                    String url = "https://parallelum.com.br/fipe/api/v1/" +
+							veiculoEscolhido + "/marcas/" + marcaEscolhida + "/modelos/" +
+							modeloEscolhido + "/anos/" + marcasVeiculos.codigo();
 
+					String jsonResponse = requisicaoAPI.conectarApi(url);
+                    try {
+                        return tabelafipeservice.parseTabelaFipe(jsonResponse); // Retorna o objeto processado
+                    } catch (JsonProcessingException e) {
+                        throw new RuntimeException(e);
+                    }
+                })
+				.forEach(tabelaFipe -> System.out.println(tabelaFipe)); // Imprime cada objeto da TabelaFipe
 	}
 
 }

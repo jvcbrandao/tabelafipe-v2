@@ -11,11 +11,14 @@ public record TabelaFipe(String Valor, String Marca,
 
     @Override
     public String toString() {
-        return "TabelaFipe: " +
-                "O valor é: " + Valor +
-                ", a marca é: " + Marca +
-                ", o modelo é: " + Modelo +
-                ", o ano do modelo é: " + AnoModelo +
-                " e o combustível é: " + Combustivel;
+        return """
+        TabelaFipe:
+        O valor é: %s,
+        a marca é: %s,
+        o modelo é: %s,
+        o ano do modelo é: %s,
+        e o combustível é: %s
+        """.formatted(Valor, Marca, Modelo, AnoModelo, Combustivel);
+
     }
 }
