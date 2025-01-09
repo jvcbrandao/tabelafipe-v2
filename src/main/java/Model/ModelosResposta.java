@@ -8,7 +8,6 @@ import java.util.List;
 public record ModelosResposta(List<Modelo> modelos) {
 
     public record Modelo(int codigo, String nome) {
-
         @Override
         public String toString() {
             return "O código é: " + codigo +

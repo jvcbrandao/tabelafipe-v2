@@ -19,6 +19,5 @@ public record TabelaFipe(String Valor, String Marca,
         o ano do modelo é: %s,
         e o combustível é: %s
         """.formatted(Valor, Marca, Modelo, AnoModelo, Combustivel);
-
     }
 }

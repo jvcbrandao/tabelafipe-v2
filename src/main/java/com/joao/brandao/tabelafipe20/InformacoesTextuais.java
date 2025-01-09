@@ -8,18 +8,18 @@ public class InformacoesTextuais {
     public String menuInicial(){
 
         System.out.println("""
-				Informe a opção desejada
+				
+				
+				Digite qual das opções abaixo você deseja
 				
 				Carro
 				
 				Caminhão
 				
 				Moto			
-				
-				
+			
 				""");
         var veiculoEscolhido = scanner.nextLine();
-
 
         if (veiculoEscolhido.toLowerCase().contains("car")){
            return veiculoEscolhido="carros";
@@ -37,27 +37,20 @@ public class InformacoesTextuais {
 
 
     public String selecionarMarca(){
-
         System.out.println("Informe o código da marca que deseja: ");
         var marcaEscolhida = scanner.nextLine();
-
         return  marcaEscolhida;
     }
 
     public String filtrarModelos(){
-
         System.out.println("Informe uma parte do nome do modelo para pesquisar: ");
         var trechoModelo = scanner.nextLine();
-
         return trechoModelo;
-
     }
 
     public String definirModelo(){
-
         System.out.println("Informe o código do modelo que deseja: ");
         var modeloEscolhido = scanner.nextLine();
-
         return  modeloEscolhido;
     }
 
